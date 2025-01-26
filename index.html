@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тапалка с картинкой</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+        }
+
+        .image-container {
+            margin-bottom: 30px; /* Отступ от картинки до счётчика */
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .image-container:active {
+            transform: scale(0.95);
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            max-height: 300px; /* Ограничиваем максимальную высоту */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .counter-display {
+            font-size: 28px;
+            color: #fff;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="image-container" id="imageContainer">
+        <img src="img/coin.png" alt="rvcoin.png">
+    </div>
+
+    <div class="counter-display">
+        RVcoins: <span id="counter">0</span>
+    </div>
+
+    <script>
+        let count = 0;
+        document.getElementById("imageContainer").addEventListener("click", function() {
+            count++;
+            document.getElementById("counter").textContent = count;
+        });
+    </script>
+
+</body>
+</html>
